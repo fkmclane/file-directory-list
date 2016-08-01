@@ -1,0 +1,155 @@
+.file *, .file *:before, .file *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.file {
+	font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 0;
+	margin: 0;
+	background: #f5f5f5;
+	text-align: center;
+}
+
+.file .wrap {
+	max-width: 600px;
+	margin: 20px auto;
+	background: white;
+	padding: 40px;
+	box-shadow: 0 0 2px #ccc;
+	text-align: left;
+}
+
+@media only screen and (max-width: 700px) {
+	.file .wrap {
+		padding: 15px;
+	}
+}
+
+.file h1 {
+	text-align: center;
+	margin: 40px 0;
+	font-size: 22px;
+	font-weight: bold;
+	color: #666;
+}
+
+.file a {
+	color: #399ae5;
+	text-decoration: none;
+}
+.file a:hover {
+	color: #206ba4;
+	text-decoration: none;
+}
+
+.file .note {
+	padding:  0 5px 25px 0;
+	font-size:80%;
+	color: #666;
+	line-height: 18px;
+}
+
+.file .block {
+	clear: both;
+	min-height: 50px;
+	border-top: solid 1px #ECE9E9;
+}
+
+.file .block:first-child {
+	border: none;
+}
+
+.file .block .img {
+	width: 50px;
+	height: 50px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+	background: transparent url(https://dl.dropbox.com/u/6771946/icons/flat.png) no-repeat 0 0;
+}
+
+.file .block .date {
+	margin-top: 4px;
+	font-size: 70%;
+	color: #666;
+}
+
+.file .block a {
+	display: block;
+	padding: 10px 15px;
+	transition: all 0.35s;
+}
+
+.file .block a:hover {
+	text-decoration: none;
+	background: #efefef;
+}
+
+.file .jpg, .file .jpeg, .file .gif, .file .png {
+	background-position: -50px 0 !important;
+}
+.file .pdf {
+	background-position: -100px 0 !important;
+}
+.file .txt, .file .rtf {
+	background-position: -150px 0 !important;
+}
+.file .xls, .file .xlsx {
+	background-position: -200px 0 !important;
+}
+.file .ppt, .file .pptx {
+	background-position: -250px 0 !important;
+}
+.file .doc, .file .docx {
+	background-position: -300px 0 !important;
+}
+.file .zip, .file .rar, .file .tar, .file .gzip {
+	background-position: -350px 0 !important;
+}
+.file .swf {
+	background-position: -400px 0 !important;
+}
+.file .fla {
+	background-position: -450px 0 !important;
+}
+.file .mp3 {
+	background-position: -500px 0 !important;
+}
+.file .wav {
+	background-position: -550px 0 !important;
+}
+.file .mp4 {
+	background-position: -600px 0 !important;
+}
+.file .mov, .file .aiff, .file .m2v, .file .avi, .file .pict, .file .qif {
+	background-position: -650px 0 !important;
+}
+.file .wmv, .file .avi, .file .mpg {
+	background-position: -700px 0 !important;
+}
+.file .flv, .file .f2v {
+	background-position: -750px 0 !important;
+}
+.file .psd {
+	background-position: -800px 0 !important;
+}
+.file .ai {
+	background-position: -850px 0 !important;
+}
+.file .html, .file .xhtml, .file .dhtml, .file .php, .file .asp, .file .css, .file .js, .file .inc {
+	background-position: -900px 0 !important;
+}
+.file .dir {
+	background-position: -950px 0 !important;
+}
+
+.file .sub {
+	margin-left: 20px;
+	border-left: solid 1px #ECE9E9;
+	display: none;
+}
