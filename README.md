@@ -10,13 +10,13 @@ Easily display files and folders in a mobile friendly, clean and cool way. Use t
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Directory Listing</title>
+		<title><?php echo dirname(__FILE__); ?></title>
 
 		<?php echo file_head(); ?>
 	</head>
 
 	<body>
-		<?php echo file_list('.'); ?>
+		<?php echo file_list(dirname(__FILE__)); ?>
 	</body>
 </html>
 ```
