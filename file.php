@@ -34,10 +34,12 @@ function _file_display_block(&$output, $file, $file_ext) {
 	$output .= "	</div>\n";
 }
 
-function _file_build_blocks(&$output, $items, $folder, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list) {
+function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list) {
 	$objects = array();
 	$objects['directories'] = array();
 	$objects['files'] = array();
+
+	$items = scandir("$dir/$folder");
 
 	foreach ($items as $c => $item) {
 		if ($item == '..' || $item == '.')
@@ -46,35 +48,38 @@ function _file_build_blocks(&$output, $items, $folder, $sort_by, $sub_folders, $
 		if (in_array($item, $ignore_file_list))
 			continue;
 
-		if ($folder && $item)
+		if ($folder)
 			$item = "$folder/$item";
 
-		$file_ext = _file_get_file_ext($item);
+		$real = "$dir/$item";
+
+		$file_ext = _file_get_file_ext($real);
 
 		if (in_array($file_ext, $ignore_ext_list))
 			continue;
 
-		if (is_dir($item)) {
+		if (is_dir($real)) {
 			$objects['directories'][] = $item;
 			continue;
 		}
 
-		$file_time = date('U', filemtime($item));
+		$file_time = date('U', filemtime($real));
 
-		if ($item)
-			$objects['files'][$file_time . '-' . $item] = $item;
+		$objects['files'][$file_time . '-' . $item] = $item;
 	}
 
+	if ($sort_by == "name_asc" || $sort_by == "date_asc")
+		natsort($objects['directories']);
+	elseif ($sort_by == "name_desc" || $sort_by == "date_desc")
+		arsort($objects['directories']);
+
 	foreach ($objects['directories'] as $c => $file) {
-		_file_display_block($output, $file, "dir");
+		_file_display_block($output, "$dir/$file", "dir");
 
 		if ($sub_folders) {
-			$sub_items = scandir($file);
-			if ($sub_items) {
-				$output .= "<div class='sub' data-folder=\"$file\">\n";
-				_file_build_blocks($output, $sub_items, $file, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
-				$output .= "</div>\n";
-			}
+			$output .= "<div class='sub' data-folder=\"$root/$file\">\n";
+			_file_build_blocks($output, $file, $dir, $root, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
+			$output .= "</div>\n";
 		}
 	}
 
@@ -88,9 +93,9 @@ function _file_build_blocks(&$output, $items, $folder, $sort_by, $sub_folders, $
 		arsort($objects['files']);
 
 	foreach ($objects['files'] as $t => $file) {
-		$file_ext = _file_get_file_ext($file);
+		$file_ext = _file_get_file_ext("$dir/$file");
 
-		_file_display_block($output, $file, $file_ext);
+		_file_display_block($output, "$root/$file", $file_ext);
 	}
 }
 
@@ -98,13 +103,16 @@ function file_head() {
 	return "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js\"></script>\n<link href=\"//fonts.googleapis.com/css?family=Lato:400\" rel=\"stylesheet\" type=\"text/css\"/>\n<link href=\"//raw.githubusercontent.com/fkmclane/file-directory-list/master/file.css\" rel=\"stylesheet\" type=\"text/css\"/>";
 }
 
-function file_list($dir, $title=null, $sort_by='name_asc', $sub_folders=true, $ignore_file_list=array('.htaccess', 'Thumbs.db', '.DS_Store', 'index.php'), $ignore_ext_list=array()) {
-	if ($title === null)
+function file_list($dir, $root=false, $title=false, $sort_by='name_asc', $sub_folders=true, $ignore_file_list=array('.htaccess', 'Thumbs.db', '.DS_Store', 'index.php'), $ignore_ext_list=array()) {
+	if (!$title)
 		$title = _file_clean_title(basename($dir));
+
+	if (!$root)
+		$root = $dir;
 
 	$output = "<div class=\"file\">\n<h1>$title</h1>\n<div class=\"wrap\">\n";
 
-	_file_build_blocks($output, scandir($dir), false, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
+	_file_build_blocks($output, false, $dir, $root, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
 
 	if ($sub_folders)
 		$output .= "<script>$(document).ready(function() { $(\"a.dir\").click(function(e) { $('.sub[data-folder=\"' + $(this).attr('href') + '\"]').slideToggle(); e.preventDefault(); }); });</script>\n";
