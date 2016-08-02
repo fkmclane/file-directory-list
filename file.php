@@ -99,7 +99,7 @@ function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folde
 	}
 }
 
-function file_head($css="https://raw.githubusercontent.com/fkmclane/file-directory-list/master/file.css") {
+function file_head($css="https://raw.githubusercontent.com/fkmclane/php-file/master/file.css") {
 	return "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js\"></script>\n<link href=\"//fonts.googleapis.com/css?family=Lato:400\" rel=\"stylesheet\" type=\"text/css\"/>\n<link href=\"$css\" rel=\"stylesheet\" type=\"text/css\"/>";
 }
 
