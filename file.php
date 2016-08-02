@@ -77,7 +77,7 @@ function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folde
 		_file_display_block($output, "$dir/$file", "dir");
 
 		if ($sub_folders) {
-			$output .= "<div class='sub' data-folder=\"$root/$file\">\n";
+			$output .= "<div class=\"sub\" data-folder=\"$root/$file\">\n";
 			_file_build_blocks($output, $file, $dir, $root, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
 			$output .= "</div>\n";
 		}
@@ -110,7 +110,7 @@ function file_list($dir, $root=false, $title=false, $sort_by='name_asc', $sub_fo
 	if (!$root)
 		$root = $dir;
 
-	$output = "<div class=\"file\">\n<h1>$title</h1>\n<div class=\"wrap\">\n";
+	$output = "<div class=\"php-file\">\n<h1>$title</h1>\n<div class=\"wrap\">\n";
 
 	_file_build_blocks($output, false, $dir, $root, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
 

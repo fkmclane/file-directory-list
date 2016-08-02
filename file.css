@@ -1,10 +1,10 @@
-.file *, .file *:before, .file *:after {
+.php-file *, .php-file *:before, .php-file *:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.file {
+.php-file {
 	font-family: "Lato", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 400;
 	font-size: 14px;
@@ -15,7 +15,7 @@
 	text-align: center;
 }
 
-.file .wrap {
+.php-file .wrap {
 	max-width: 600px;
 	margin: 20px auto;
 	background: white;
@@ -25,12 +25,12 @@
 }
 
 @media only screen and (max-width: 700px) {
-	.file .wrap {
+	.php-file .wrap {
 		padding: 15px;
 	}
 }
 
-.file h1 {
+.php-file h1 {
 	text-align: center;
 	margin: 40px 0;
 	font-size: 22px;
@@ -38,33 +38,33 @@
 	color: #666;
 }
 
-.file a {
+.php-file a {
 	color: #399ae5;
 	text-decoration: none;
 }
-.file a:hover {
+.php-file a:hover {
 	color: #206ba4;
 	text-decoration: none;
 }
 
-.file .note {
+.php-file .note {
 	padding:  0 5px 25px 0;
 	font-size:80%;
 	color: #666;
 	line-height: 18px;
 }
 
-.file .block {
+.php-file .block {
 	clear: both;
 	min-height: 50px;
 	border-top: solid 1px #ECE9E9;
 }
 
-.file .block:first-child {
+.php-file .block:first-child {
 	border: none;
 }
 
-.file .block .img {
+.php-file .block .img {
 	width: 50px;
 	height: 50px;
 	display: block;
@@ -73,82 +73,82 @@
 	background: transparent url(https://dl.dropbox.com/u/6771946/icons/flat.png) no-repeat 0 0;
 }
 
-.file .block .date {
+.php-file .block .date {
 	margin-top: 4px;
 	font-size: 70%;
 	color: #666;
 }
 
-.file .block a {
+.php-file .block a {
 	display: block;
 	padding: 10px 15px;
 	transition: all 0.35s;
 }
 
-.file .block a:hover {
+.php-file .block a:hover {
 	text-decoration: none;
 	background: #efefef;
 }
 
-.file .jpg, .file .jpeg, .file .gif, .file .png {
+.php-file .jpg, .php-file .jpeg, .php-file .gif, .php-file .png {
 	background-position: -50px 0 !important;
 }
-.file .pdf {
+.php-file .pdf {
 	background-position: -100px 0 !important;
 }
-.file .txt, .file .rtf {
+.php-file .txt, .php-file .rtf {
 	background-position: -150px 0 !important;
 }
-.file .xls, .file .xlsx {
+.php-file .xls, .php-file .xlsx {
 	background-position: -200px 0 !important;
 }
-.file .ppt, .file .pptx {
+.php-file .ppt, .php-file .pptx {
 	background-position: -250px 0 !important;
 }
-.file .doc, .file .docx {
+.php-file .doc, .php-file .docx {
 	background-position: -300px 0 !important;
 }
-.file .zip, .file .rar, .file .tar, .file .gzip {
+.php-file .zip, .php-file .rar, .php-file .tar, .php-file .gzip {
 	background-position: -350px 0 !important;
 }
-.file .swf {
+.php-file .swf {
 	background-position: -400px 0 !important;
 }
-.file .fla {
+.php-file .fla {
 	background-position: -450px 0 !important;
 }
-.file .mp3 {
+.php-file .mp3 {
 	background-position: -500px 0 !important;
 }
-.file .wav {
+.php-file .wav {
 	background-position: -550px 0 !important;
 }
-.file .mp4 {
+.php-file .mp4 {
 	background-position: -600px 0 !important;
 }
-.file .mov, .file .aiff, .file .m2v, .file .avi, .file .pict, .file .qif {
+.php-file .mov, .php-file .aiff, .php-file .m2v, .php-file .avi, .php-file .pict, .php-file .qif {
 	background-position: -650px 0 !important;
 }
-.file .wmv, .file .avi, .file .mpg {
+.php-file .wmv, .php-file .avi, .php-file .mpg {
 	background-position: -700px 0 !important;
 }
-.file .flv, .file .f2v {
+.php-file .flv, .php-file .f2v {
 	background-position: -750px 0 !important;
 }
-.file .psd {
+.php-file .psd {
 	background-position: -800px 0 !important;
 }
-.file .ai {
+.php-file .ai {
 	background-position: -850px 0 !important;
 }
-.file .html, .file .xhtml, .file .dhtml, .file .php, .file .asp, .file .css, .file .js, .file .inc {
+.php-file .html, .php-file .xhtml, .php-file .dhtml, .php-file .php, .php-file .asp, .php-file .css, .php-file .js, .php-file .inc {
 	background-position: -900px 0 !important;
 }
-.file .dir {
+.php-file .dir {
 	background-position: -950px 0 !important;
 }
 
-.file .sub {
+.php-file .sub {
 	margin-left: 20px;
 	border-left: solid 1px #ECE9E9;
 	display: none;
