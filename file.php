@@ -99,8 +99,8 @@ function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folde
 	}
 }
 
-function file_head() {
-	return "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js\"></script>\n<link href=\"//fonts.googleapis.com/css?family=Lato:400\" rel=\"stylesheet\" type=\"text/css\"/>\n<link href=\"//raw.githubusercontent.com/fkmclane/file-directory-list/master/file.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+function file_head($css="file.css") {
+	return "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js\"></script>\n<link href=\"//fonts.googleapis.com/css?family=Lato:400\" rel=\"stylesheet\" type=\"text/css\"/>\n<link href=\"$css\" rel=\"stylesheet\" type=\"text/css\"/>";
 }
 
 function file_list($dir, $root=false, $title=false, $sort_by='name_asc', $sub_folders=true, $ignore_file_list=array('.htaccess', 'Thumbs.db', '.DS_Store', 'index.php'), $ignore_ext_list=array()) {
