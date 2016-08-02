@@ -4,6 +4,12 @@
 	<head>
 		<title><?php echo dirname(__FILE__); ?></title>
 
+		<style>
+			body {
+				background: #f5f5f5;
+			}
+		</style>
+
 		<?php echo file_head(); ?>
 	</head>
 
