@@ -110,6 +110,8 @@ function file_head($jquery=true, $font=true, $css="https://raw.githubusercontent
 
 	$output .= "<link href=\"$css\" rel=\"stylesheet\" type=\"text/css\"/>";
 
+	$output .= "<script>$(document).ready(function() { $(\"a.dir\").click(function(e) { $('.sub[data-folder=\"' + $(this).attr('href') + '\"]').slideToggle(); e.preventDefault(); }); });</script>\n";
+
 	return $output;
 }
 
@@ -125,9 +127,6 @@ function file_list($dir, $root=false, $title=false, $sort_by='name_asc', $sub_fo
 	$output .= "<div class=\"php-file\">\n<h1>$title</h1>\n<div class=\"wrap\">\n";
 
 	_file_build_blocks($output, false, $dir, $root, $sort_by, $sub_folders, $ignore_file_list, $ignore_ext_list);
-
-	if ($sub_folders)
-		$output .= "<script>$(document).ready(function() { $(\"a.dir\").click(function(e) { $('.sub[data-folder=\"' + $(this).attr('href') + '\"]').slideToggle(); e.preventDefault(); }); });</script>\n";
 
 	$output .= "</div>\n</div>\n";
 
