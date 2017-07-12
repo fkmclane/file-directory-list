@@ -69,7 +69,7 @@
 	display: block;
 	float: left;
 	margin-right: 10px;
-	background: transparent url(https://dl.dropbox.com/u/6771946/icons/flat.png) no-repeat 0 0;
+	background: transparent url(https://raw.githubusercontent.com/fkmclane/php-file/master/file.png) no-repeat 0 0;
 }
 
 .php-file .block .date {
