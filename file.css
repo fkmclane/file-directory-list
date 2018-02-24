@@ -72,21 +72,60 @@
 	background: transparent url(https://gitcdn.link/repo/fkmclane/php-file/master/file.png) no-repeat 0 0;
 }
 
-.php-file .block .date {
-	margin-top: 4px;
-	font-size: 70%;
+.php-file .block .file {
+	padding-bottom: 5px;
+}
+
+.php-file .block .data {
+	line-height: 1.3em;
 	color: #666;
 }
 
 .php-file .block a {
 	display: block;
-	padding: 10px 15px;
+	padding: 20px;
 	transition: all 0.35s;
 }
 
-.php-file .block a:hover {
+.php-file .block a:hover, .php-file .block a.open {
 	text-decoration: none;
 	background: #efefef;
+}
+
+.php-file .bold {
+	font-weight: 900;
+}
+
+.php-file .upper {
+	text-transform: uppercase;
+}
+
+.php-file .fs-1 {
+	font-size: 1em;
+}
+
+.php-file .fs-1-1 {
+	font-size: 1.1em;
+}
+
+.php-file .fs-1-2 {
+	font-size: 1.2em;
+}
+
+.php-file .fs-1-3 {
+	font-size: 1.3em;
+}
+
+.php-file .fs-0-9 {
+	font-size: 0.9em;
+}
+
+.php-file .fs-0-8 {
+	font-size: 0.8em;
+}
+
+.php-file .fs-0-7 {
+	font-size: 0.7em;
 }
 
 .php-file .jpg, .php-file .jpeg, .php-file .gif, .php-file .png {
@@ -149,6 +188,38 @@
 
 .php-file .sub {
 	margin-left: 20px;
-	border-left: solid 1px #ECE9E9;
+	border-left: solid 5px #ECE9E9;
 	display: none;
+}
+
+.php-file.dark {
+	color: #fff;
+}
+
+.php-file.dark h1 {
+	color: #fff;
+}
+
+.php-file.dark .wrap {
+	background: #2b2a2a;
+}
+
+.php-file.dark .block {
+	border-top: solid 1px #666;
+}
+
+.php-file.dark .block a:hover, .php-file.dark .block a.open {
+	background: #000;
+}
+
+.php-file.dark .note {
+	color: #fff;
+}
+
+.php-file.dark .block .data {
+	color: #fff;
+}
+
+.php-file.dark .sub {
+	border-left: solid 5px #0e0e0e;
 }

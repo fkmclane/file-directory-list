@@ -5,8 +5,12 @@
 		<title><?php echo dirname(__FILE__); ?></title>
 
 		<style>
-			body {
-				background: #f5f5f5;
+			.light {
+				background: #dadada;
+			}
+
+			.dark {
+				background: #1d1c1c
 			}
 		</style>
 
@@ -14,6 +18,11 @@
 	</head>
 
 	<body>
-		<?php echo file_list(dirname(__FILE__)); ?>
+		<div class="light">
+			<?php echo file_list(dirname(__FILE__)); ?>
+		</div>
+		<div class="dark">
+			<?php echo file_list(dirname(__FILE__), 'dark'); ?>
+		</div>
 	</body>
 </html>
