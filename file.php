@@ -130,7 +130,7 @@ function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folde
 	}
 }
 
-function file_head($jquery=true, $font=true, $css="https://gitcdn.link/repo/fkmclane/php-file/master/file.css") {
+function file_head($jquery=true, $font=true, $css="https://rawgit.com/fkmclane/php-file/master/file.css") {
 	$output = "";
 
 	if ($jquery)
