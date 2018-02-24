@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo dirname(__FILE__); ?></title>
+		<title>php-file</title>
 
 		<style>
 			.light {
