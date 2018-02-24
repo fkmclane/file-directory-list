@@ -10,11 +10,16 @@ Easily display files and folders in a mobile friendly, clean and cool way. Use t
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo dirname(__FILE__); ?></title>
+		<title>php-file</title>
 
 		<style>
-			body {
-				background: #f5f5f5;
+			.light {
+				background: #dadada;
+				padding: 20px;
+			}
+			.dark {
+				background: #1d1c1c;
+				padding: 20px;
 			}
 		</style>
 
@@ -22,7 +27,12 @@ Easily display files and folders in a mobile friendly, clean and cool way. Use t
 	</head>
 
 	<body>
-		<?php echo file_list(dirname(__FILE__)); ?>
+		<div class="light">
+			<?php echo file_list(dirname(__FILE__), 'light', '', 'php-file'); ?>
+		</div>
+		<div class="dark">
+			<?php echo file_list(dirname(__FILE__), 'dark', '', 'php-file'); ?>
+		</div>
 	</body>
 </html>
 ```
