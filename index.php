@@ -7,10 +7,12 @@
 		<style>
 			.light {
 				background: #dadada;
+				padding: 20px;
 			}
 
 			.dark {
-				background: #1d1c1c
+				background: #1d1c1c;
+				padding: 20px;
 			}
 		</style>
 
