@@ -21,10 +21,10 @@
 
 	<body>
 		<div class="light">
-			<?php echo file_list(dirname(__FILE__)); ?>
+			<?php echo file_list(dirname(__FILE__), 'light', '', 'php-file'); ?>
 		</div>
 		<div class="dark">
-			<?php echo file_list(dirname(__FILE__), 'dark'); ?>
+			<?php echo file_list(dirname(__FILE__), 'dark', '', 'php-file'); ?>
 		</div>
 	</body>
 </html>

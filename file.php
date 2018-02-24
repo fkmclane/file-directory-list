@@ -8,7 +8,7 @@ function _file_get_file_ext($filename) {
 	return substr(strrchr($filename, '.'), 1);
 }
 
-function _file_display_size($bytes, $precision = 2) {
+function _file_get_size($bytes, $precision = 2) {
 	$units = array('B', 'KB', 'MB', 'GB', 'TB');
 	$bytes = max($bytes, 0);
 	$pow = floor(($bytes ? log($bytes) : 0) / log(1024));
@@ -34,19 +34,19 @@ function _file_get_directory_size($file) {
 	return $bytes;
 }
 
-function _file_display_block(&$output, $file, $file_ext, $download) {
+function _file_display_block(&$output, $path, $link, $file_ext, $download) {
 	$output .= "	<div class=\"block\">\n";
-	$output .= "		<a href=\"$file\" class=\"$file_ext\"" . ($download ? " download=\"" . basename($file) . "\"" : "") . ">\n";
+	$output .= "		<a href=\"$link\" class=\"$file_ext\"" . ($download ? " download=\"" . basename($link) . "\"" : "") . ">\n";
 	$output .= "			<div class=\"img $file_ext\"></div>\n";
 	$output .= "			<div class=\"name\">\n";
-	$output .= "				<div class=\"file fs-1-2 bold\">" . basename($file) . "</div>\n";
+	$output .= "				<div class=\"file fs-1-2 bold\">" . basename($link) . "</div>\n";
 	if ($file_ext === 'dir') {
-		$output .= "				<div class=\"data upper size fs-0-7\"><span class=\"bold\">" . _file_count_dir_files($file) . "</span> files</div>\n";
-		$output .= "				<div class=\"data upper size fs-0-7\"><span class=\"bold\">Size:</span> " . _file_display_size(_file_get_directory_size($file)) . "</div>\n";
+		$output .= "				<div class=\"data upper size fs-0-7\"><span class=\"bold\">" . _file_count_dir_files($path) . "</span> files</div>\n";
+		$output .= "				<div class=\"data upper size fs-0-7\"><span class=\"bold\">Size:</span> " . _file_get_size(_file_get_directory_size($path)) . "</div>\n";
 	}
 	else {
-		$output .= "				<div class=\"data upper size fs-0-7\"><span class=\"bold\">Size:</span> " . _file_display_size(filesize($file)) . "</div>\n";
-		$output .= "				<div class=\"data upper modified fs-0-7\"><span class=\"bold\">Last modified:</span> " .  date("D. F jS, Y - h:ia", filemtime($file)) . "</div>\n";
+		$output .= "				<div class=\"data upper size fs-0-7\"><span class=\"bold\">Size:</span> " . _file_get_size(filesize($path)) . "</div>\n";
+		$output .= "				<div class=\"data upper modified fs-0-7\"><span class=\"bold\">Last modified:</span> " .  date("D. F jS, Y - h:ia", filemtime($path)) . "</div>\n";
 	}
 	$output .= "			</div>\n";
 	$output .= "		</a>\n";
@@ -98,7 +98,7 @@ function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folde
 		$dir_output = '';
 		$sub_output = '';
 
-		_file_display_block($dir_output, "$dir/$file", "dir", false);
+		_file_display_block($dir_output, "$dir/$file", "$root/$file", "dir", false);
 
 		if ($sub_folders)
 			_file_build_blocks($sub_output, $file, $dir, $root, $sort_by, $sub_folders, $force_download, $ignore_empty_folders, $ignore_file_list, $ignore_ext_list);
@@ -126,7 +126,7 @@ function _file_build_blocks(&$output, $folder, $dir, $root, $sort_by, $sub_folde
 	foreach ($objects['files'] as $t => $file) {
 		$file_ext = _file_get_file_ext("$dir/$file");
 
-		_file_display_block($output, "$root/$file", $file_ext, $force_download);
+		_file_display_block($output, "$dir/$file", "$root/$file", $file_ext, $force_download);
 	}
 }
 
@@ -151,7 +151,7 @@ function file_list($dir, $color='light', $root=false, $title=false, $sort_by='na
 		$title = _file_clean_title(basename($dir));
 
 	if (!$root)
-		$root = $dir;
+		$root = '';
 
 	$output = "";
 
